@@ -8,6 +8,7 @@ while getgenv().Farm and task.wait() do
       task.wait(.1);
        -- print(workspace.Locations:GetChildren()[i])
        if workspace.Items:FindFirstChild("ItemSpawnBag") then
+        workspace.Items.ItemSpawnBag.Item.MaxActivationDistance = 999
          plr.Character.HumanoidRootPart.CFrame = workspace.Items.ItemSpawnBag.CFrame
           game:GetService('VirtualInputManager'):SendKeyEvent(true, "E", false, yes);
           else
