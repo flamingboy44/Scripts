@@ -14,10 +14,10 @@ while getgenv().Farm and task.wait() do
        -- print(workspace.Locations:GetChildren()[i])
        if workspace.Items:FindFirstChild("ItemSpawnBag") then
          plr.Character.HumanoidRootPart.CFrame = workspace.Items.ItemSpawnBag.CFrame
+          game:GetService('VirtualInputManager'):SendKeyEvent(true, "E", false, yes); -- Incase above doesn't work.
           game:GetService("ProximityPromptService").PromptShown:Connect(function(prompt)
             fireproximityprompt(prompt)
           end)
-          game:GetService('VirtualInputManager'):SendKeyEvent(true, "E", false, yes); -- Incase above doesn't work.
           else
           plr.Character.HumanoidRootPart.CFrame = workspace.Locations:GetChildren()[i].CFrame + Vector3.new(0,-200,0);
       end
