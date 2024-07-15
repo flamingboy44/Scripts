@@ -1,0 +1,18 @@
+--Second Piece Item Autofarm
+local plr = game:service"Players".LocalPlayer;
+getgenv().Farm = true;
+
+while getgenv().Farm and task.wait() do
+  pcall(function()
+    for i = 1, 15 do
+      task.wait(.1);
+       -- print(workspace.Locations:GetChildren()[i])
+       if workspace.Items:FindFirstChild("ItemSpawnBag") then
+         plr.Character.HumanoidRootPart.CFrame = workspace.Items.ItemSpawnBag.CFrame
+          game:GetService('VirtualInputManager'):SendKeyEvent(true, "E", false, yes);
+          else
+          plr.Character.HumanoidRootPart.CFrame = workspace.Locations:GetChildren()[i].CFrame + Vector3.new(0,-200,0);
+      end
+    end
+  end)
+end
