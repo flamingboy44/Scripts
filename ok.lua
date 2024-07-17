@@ -4190,7 +4190,7 @@ end
 1233.	-- V nested upvalues[0] = v1446
 -- V nested upvalues[1] = v1576
 -- V nested upvalues[2] = v1468
--- V nested upvalues[3] = v1504
+-- V nested upvalues[3] = v1504 game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Ability
 -- V nested upvalues[4] = v1574
 local function Instinct_Active(p17) -- [line 1080]
 	1.	local v1434 = v1446 -- get upval
@@ -4207,10 +4207,10 @@ local function Instinct_Active(p17) -- [line 1080]
 	14.	
 	16.	v1434 = v1434:GetAttribute(v1436)
 	17.	if v1434 == true then goto #31
-	19.	v1434 = v1504 -- get upval
+	19.	v1434 = v1504 -- game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Ability
 	20.	v1436 = "Instinct"
 	21.	
-	23.	v1434:InvokeServer(v1436)
+	23.	v1434:InvokeServer(v1436) -- game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Ability("Instinct")
 	24.	v1434 = v1574 -- get upval
 	25.	v1435 = "Off"
 	26.	v1434(v1435)
