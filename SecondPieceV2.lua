@@ -6,7 +6,6 @@ getgenv().WaitTime = .1;
 ]]
 -- workspace.Items.ItemSpawnBag.Billboard.ItemFrame.Frame.TextLabel
 loadstring(game:HttpGet("https://raw.githubusercontent.com/flamingboy44/Scripts/main/AntiAFK.lua", true))()
-getgenv().WebhookURL = "https://discord.com/api/webhooks/1263799141041963092/aOzDbAOVAluIyNBzW_OPfz5fHsKnfVbht2j14754Tlcs8j1r3_ViYweT2-5ZiXk1LgKb"
 getgenv().TotalItem = 1
 
 local PathfindingService, RunService, TweenService, ReplicatedStorage, HttpService = game:GetService("PathfindingService"), game:GetService("RunService"), game:GetService("TweenService"), game:GetService("ReplicatedStorage"), game:GetService("HttpService")
