@@ -36,16 +36,17 @@ local function sendToWebhook(data, s)
 end
 
 sendToWebhook({text = "<a:gambling:1211115018570047568> <@1193193892678475798> Script Executed @*" .. os.date("%H:%M:%S." .. string.sub(string.match(tostring(os.clock()), "%.(%d+)"), 1, 3)) .. "* <a:gambling:1211115018570047568> "})
+-- Skidded, thx . i forgot who made it but thanks u saved me a ton of time :)
 
-
-local items = {}
+local items = {} -- Getting items that may spawn
 _G.item = false
 for _,v in ipairs(game:GetService("ReplicatedStorage").ItemHandle:GetChildren()) do
     table.insert(items, v.Name)
 end
+
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/flamingboy44/Turtle-Lib/main/source.lua"))()
 local window = library:Window("Second Piece")
-loadstring(game:HttpGet("https://raw.githubusercontent.com/flamingboy44/Scripts/main/FireProximityPrompt", true))();
+loadstring(game:HttpGet("https://raw.githubusercontent.com/flamingboy44/Scripts/main/FireProximityPrompt", true))(); -- used for the "fireproximityprompt" function
 local plr = game:service"Players".LocalPlayer;
 
 
@@ -54,10 +55,10 @@ local dropdown = window:Dropdown("Items you've gotten", {}, function(name)
    print(name) -- There isn't really a point for this one anymore ... xD ... Webhook Working On top
 end)
 function wsec()
-    local v8291 = workspace.Items:WaitForChild("ItemSpawnBag").Billboard.ItemFrame.Frame.TextLabel.Text
-    if workspace.Items:FindFirstChild("ItemSpawnBag") then
-        _G.item = true
-         if table.find(items, v8291) then
+    local v8291 = workspace.Items:WaitForChild("ItemSpawnBag").Billboard.ItemFrame.Frame.TextLabel.Text -- Really ? -- yes i had to -- because wasn't really sure how i was gonna do it, worked in the end though 
+    if workspace.Items:FindFirstChild("ItemSpawnBag") then -- check
+        _G.item = true -- no duplicate items
+         if table.find(items, v8291) then -- checks the item table, if it matches then: sends to webhook 
              dropdown:Button(v8291)
              sendToWebhook({
 									title = "Item Collected", 
@@ -78,19 +79,19 @@ while _G.on and task.wait() do
   pcall(function()
         for i = 1, 15 do
       task.wait(getgenv().WaitTime);
-       -- print(workspace.Locations:GetChildren()[i])
+       -- print(workspace.Locations:GetChildren()[i]) -- testing
        if workspace.Items:FindFirstChild("ItemSpawnBag") then
          plr.Character.HumanoidRootPart.CFrame = workspace.Items.ItemSpawnBag.CFrame
-          if not _G.item then
+          if not _G.item then -- if _G.item == false
             wsec();
           end
           game:GetService('VirtualInputManager'):SendKeyEvent(true, "E", false, yes); -- Incase above doesn't work.
-          game:GetService("ProximityPromptService").PromptShown:Connect(function(prompt)
+          game:GetService("ProximityPromptService").PromptShown:Connect(function(prompt) -- Fixed
             fireproximityprompt(prompt)
           end)
           else
-              _G.item = false
-              plr.Character.HumanoidRootPart.CFrame = workspace.Locations:GetChildren()[i].CFrame + Vector3.new(0,-200,0);
+              _G.item = false -- No duplicate items sent to webhook or put in gui
+              plr.Character.HumanoidRootPart.CFrame = workspace.Locations:GetChildren()[i].CFrame + Vector3.new(0,-200,0); -- make -200 = -300 if you have trouble loading the item bags
        end
       end
   end)
@@ -105,10 +106,10 @@ window:Toggle("AutoChest", false, function(what)
     plr:SetAttribute("AutoChest", what)
 end)
 
-window:Toggle("First Person Efficient", false, function(plus)
+window:Toggle("First Person Efficient", nil, function(plus)
     if plus == false then
         game:service'Players'.LocalPlayer.CameraMode = "Classic"
-        game:GetService('VirtualInputManager'):SendKeyEvent(true, "O", false, yes);
+        game:GetService('VirtualInputManager'):SendKeyEvent(true, "O", false, yes); -- dont mind, zooms out for you
         return
     end
     if plus == true then
@@ -130,3 +131,5 @@ end
 local newdropdown = newwindow:Dropdown("Tp To", Islands, function(zx)
         plr.Character.HumanoidRootPart.CFrame = workspace.Locations[zx].CFrame + Vector3.new(0,-300,0) -- dont really change that value as i adjusted it for all the islands on the game, if you want to add specific things then do that as im not smart enough. This is for optimization though😅
     end)
+-- Auto Merchant Coming Soon...
+-- Hopefully
