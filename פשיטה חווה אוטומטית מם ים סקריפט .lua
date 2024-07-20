@@ -90,7 +90,7 @@ function CheckHaki()
     end;
 end;
 function CheckKen()
-    if lp.Ability.Instinct.Value == true and lp.PlayerData.Dodge.Value > 4 and chr:FindFirstChild("Humanoid").Health < 35000 then
+    if lp.Ability.Instinct.Value == true and lp.PlayerData.Dodge.Value > 4 and chr:FindFirstChild("Humanoid").Health < getgenv().KenHealth then
         if _G.instinctvf.Value == false then
             game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Ability:InvokeServer("Instinct")
             _G.instinctvf.Value = true
@@ -102,7 +102,7 @@ function CheckKen()
 end;
 function CheckHealth()
 	if lp.Ability.FishAwaken.Value == true then
-    	if chr:FindFirstChild("Humanoid").Health < 39420 then
+    	if chr:FindFirstChild("Humanoid").Health < getgenv().RaceHealth then
         	if not lp:FindFirstChild("Cooldown"):FindFirstChild("RaceSkillCD") then
         		game:GetService('VirtualInputManager'):SendKeyEvent(true, "T", false, yes);  
         	end
