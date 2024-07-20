@@ -1,5 +1,4 @@
 -- TODO:
-getgenv().ToolNameFarm_NoFruits = "Purple Katana"
 --
 _G.TeleportRaid = false
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/flamingboy44/Turtle-Lib/main/source.lua"))()
