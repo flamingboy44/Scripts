@@ -7,7 +7,6 @@ getgenv().WaitTime = .1;
 -- workspace.Items.ItemSpawnBag.Billboard.ItemFrame.Frame.TextLabel
 loadstring(game:HttpGet("https://raw.githubusercontent.com/flamingboy44/Scripts/main/AntiAFK.lua", true))()
 getgenv().TotalItem = 1
-
 local PathfindingService, RunService, TweenService, ReplicatedStorage, HttpService = game:GetService("PathfindingService"), game:GetService("RunService"), game:GetService("TweenService"), game:GetService("ReplicatedStorage"), game:GetService("HttpService")
 if not pcall(function()
 	_request = request or http_request or http.request
@@ -47,6 +46,7 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/flami
 local window = library:Window("Second Piece")
 loadstring(game:HttpGet("https://raw.githubusercontent.com/flamingboy44/Scripts/main/FireProximityPrompt", true))(); -- used for the "fireproximityprompt" function
 local plr = game:service"Players".LocalPlayer;
+plr:SetAttribute("AutoChest", true)
 
 
 
@@ -101,10 +101,6 @@ window:Slider("Wait Time",0,1, 0.1, function(value)
    getgenv().WaitTime = value;
 end)
 
-window:Toggle("AutoChest", false, function(what)
-    plr:SetAttribute("AutoChest", what)
-end)
-
 window:Toggle("First Person Efficient", nil, function(plus)
     if plus == false then
         game:service'Players'.LocalPlayer.CameraMode = "Classic"
@@ -128,7 +124,7 @@ for _, v in ipairs(workspace.Locations:GetChildren()) do
 end
 
 local newdropdown = newwindow:Dropdown("Tp To", Islands, function(zx)
-        plr.Character.HumanoidRootPart.CFrame = workspace.Locations[zx].CFrame + Vector3.new(0,-300,0) -- dont really change that value as i adjusted it for all the islands on the game, if you want to add specific things then do that as im not smart enough. This is for optimization though😅
-    end)
+	plr.Character.HumanoidRootPart.CFrame = workspace.Locations[zx].CFrame + Vector3.new(0,-300,0) -- dont really change that value as i adjusted it for all the islands on the game, if you want to add specific things then do that as im not smart enough. This is for optimization though😅
+end)
 -- Auto Merchant Coming Soon...
 -- Hopefully
